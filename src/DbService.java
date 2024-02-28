@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.util.List;
 
 public class DbService implements crud{
     private final Connection connection;
@@ -17,8 +18,8 @@ public class DbService implements crud{
     }
 
     @Override
-    public void getAllEmployees() {
-
+    public List <Employee> getAllEmployees() {
+return null;
     }
 
     @Override
@@ -32,7 +33,7 @@ public class DbService implements crud{
     }
 
     @Override
-    public void getEmployee(String pol, String letter) {
-
+    public List<Employee> getEmployee(String pol, String letter) {
+        return null;
     }
 }
