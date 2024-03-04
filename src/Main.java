@@ -10,16 +10,25 @@ public class Main {
                     service.createTableOfEmloyees();
                     break;
                 case 2:
-                    service.saveEmployee(new Employee(args[1], new Date(args[2]), args[3]));
+                    Employee employee = new Employee();
+                    if (args[3] == null || (args[3] == Gender.MALE.getTitle() || args[3] == Gender.FEMALE.getTitle())) {
+                        employee.setGender(Gender.UNDEFINED);
+                    }
+                    employee.setName(args[1]);
+                    employee.setBirthDay(args[2]);
+                    service.saveEmployee(employee);
                     break;
                 case 3:
-                    service.getAllEmployees();
+                    service.printAllEmployees();
                     break;
                 case 4:
                     service.fillDb();
                     break;
                 case 5:
-                    service.getEmployee(args[1], args[2]);
+                    service.printFemployee();
+                    break;
+                case 6:
+                    service.createIndexEmployee();
                     break;
                 default:
                     System.out.println("Неверные данные в строке запуска приложения");
@@ -27,6 +36,7 @@ public class Main {
 
             }
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             System.out.println("Запуск приложения только из командной строки");
         }
     }
